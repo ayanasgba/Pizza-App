@@ -16,6 +16,12 @@ The **Pizza-App** is a university project focused on Java backend development. I
 - **Database:** H2-Database
 - **Version control:** GitHub
 
+### Authors
+
+- [@Chingiz](https://github.com/Operans)
+- [@Bektur](https://github.com/bekturmsv)
+- [@Aiana](https://github.com/ayanasgba)
+
 ## Getting Started
 
 ### Prerequisites

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== FAVICON ===============-->
+    <link
+      rel="shortcut icon"
+      href="assets/img/logo-pizza.png"
+      type="image/x-icon"
+    />
+
+    <!--=============== REMIXICONS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css"
+    />
+
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/home.css" />
+
+    <title>Pizza</title>
+  </head>
+  <body>
+    <!--==================== HEADER ====================-->
+
+    <header th:insert="fragments/header.html :: header"></header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+      <!--==================== HOME ====================-->
+      <section class="home section" id="home">
+        <div class="home__container container grid">
+          <div class="home__data">
+            <h1 class="home__title">
+              Crispy And <br />
+              Delicious Pizzas
+            </h1>
+
+            <p class="home__description">
+              Order the best pizzas to end your hunger and make your family
+              moments more memorable, place your order now.
+            </p>
+
+            <a href="#pizzas" class="button">Order Pizza Now</a>
+            <img
+              src="assets/img/sticker-pizza.svg"
+              class="home__sticker-1"
+              alt=""
+            />
+            <img
+              src="assets/img/sticker-leaf.svg"
+              class="home__sticker-2"
+              alt=""
+            />
+          </div>
+          <div class="home__images">
+            <img
+              src="assets/img/home-pizza.png"
+              alt="iamge"
+              class="home__pizza"
+            />
+            <img
+              src="assets/img/home-board.png"
+              alt="iamge"
+              class="home__board"
+            />
+
+            <img
+              src="assets/img/home-leaf-1.png"
+              alt="iamge"
+              class="home__ingredient home__leaf-1"
+            />
+            <img
+              src="assets/img/home-leaf-2.png"
+              alt="iamge"
+              class="home__ingredient home__leaf-2"
+            />
+            <img
+              src="assets/img/home-pepperoni.png"
+              alt="iamge"
+              class="home__ingredient home__pepperoni"
+            />
+            <img
+              src="assets/img/home-mushroom.png"
+              alt="iamge"
+              class="home__ingredient home__mushroom"
+            />
+            <img
+              src="assets/img/home-olive.png"
+              alt="iamge"
+              class="home__ingredient home__olive"
+            />
+            <img
+              src="assets/img/home-tomato.png"
+              alt="iamge"
+              class="home__ingredient home__tomato"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!--==================== ABOUT ====================-->
+      <section class="about section" id="about">
+        <div class="about__container container grid">
+          <div class="about__data">
+            <h2 class="section__title">
+              Learn More About <br />
+              Our History
+            </h2>
+            <p class="about__description">
+              The secret to success is the best ingredients to make a better
+              pizza. Today we strive for perfection, just as we have been doing
+              for 15 years when we first opened the pizzeria in Zwickau -
+              Germany.
+            </p>
+
+            <a href="#popular" class="button">The Best Pizzas</a>
+            <img
+              src="assets/img/sticker-cheese.svg"
+              alt="image"
+              class="about__sticker"
+            />
+          </div>
+          <img src="assets/img/about-img.png" alt="image" class="about__img" />
+        </div>
+      </section>
+
+      <!--==================== POPULAR ====================-->
+      <section class="popular section" id="popular">
+        <div class="popular__container container grid">
+          <div class="popular__data">
+            <h2 class="section__title">
+              Discover <br />
+              Popular Pizzas
+            </h2>
+            <p class="popular__description">
+              Select the best prepared and delicious flavors. We have collected
+              some popular recipes from around the world for you to choose your
+              favorite.
+            </p>
+          </div>
+
+          <div class="popular__swiper swiper">
+            <img
+              src="assets/img/popular-dish.png"
+              alt="image"
+              class="popular__dish"
+            />
+            <div class="swiper-wrapper">
+              <article class="popular__card swiper-slide">
+                <img
+                  src="assets/img/popular-1.png"
+                  alt="image"
+                  class="popular__img"
+                />
+
+                <h3 class="popular__title">Margherita Pizza</h3>
+              </article>
+
+              <article class="popular__card swiper-slide">
+                <img
+                  src="assets/img/popular-2.png"
+                  alt="image"
+                  class="popular__img"
+                />
+                <h3 class="popular__title">Mushroom Pizza</h3>
+              </article>
+
+              <article class="popular__card swiper-slide">
+                <img
+                  src="assets/img/popular-3.png"
+                  alt="image"
+                  class="popular__img"
+                />
+                <h3 class="popular__title">Pepperoni Pizza</h3>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== RECIPE ====================-->
+      <section class="recipe section" id="recipe">
+        <h2 class="section__title">
+          Fresh And <br />
+          Natural Ingredients
+        </h2>
+
+        <div class="recipe__container container grid">
+          <div class="recipe__list grid">
+            <div class="recipe__ingredient">
+              <img
+                src="assets/img/recipe-flour.png"
+                alt="image"
+                class="recipe__image"
+              />
+
+              <div>
+                <h3 class="recipe__name">Flour</h3>
+                <p class="recipe__description">
+                  The best wheat from the field for the best flour.
+                </p>
+              </div>
+            </div>
+            <div class="recipe__ingredient">
+              <img
+                src="assets/img/recipe-cheese.png"
+                alt="image"
+                class="recipe__image"
+              />
+
+              <div>
+                <h3 class="recipe__name">Cheese</h3>
+                <p class="recipe__description">
+                  Indulge in cheese for a healthy future.
+                </p>
+              </div>
+            </div>
+            <div class="recipe__ingredient">
+              <img
+                src="assets/img/recipe-sauces.png "
+                alt="image"
+                class="recipe__image"
+              />
+
+              <div>
+                <h3 class="recipe__name">Sauces</h3>
+                <p class="recipe__description">
+                  Add a touch of salsa to your life and it will taste better.
+                </p>
+              </div>
+            </div>
+            <div class="recipe__ingredient">
+              <img
+                src="assets/img/recipe-tomato.png"
+                alt="image"
+                class="recipe__image"
+              />
+
+              <div>
+                <h3 class="recipe__name">Vegetables</h3>
+                <p class="recipe__description">
+                  Vegetables full of the essence of nature and organic.
+                </p>
+              </div>
+            </div>
+            <div class="recipe__ingredient">
+              <img
+                src="assets/img/recipe-meat.png"
+                alt="image"
+                class="recipe__image"
+              />
+
+              <div>
+                <h3 class="recipe__name">Meats</h3>
+                <p class="recipe__description">
+                  The best fresh meats for your health. .
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <img
+            src="assets/img/recipe-img.png"
+            alt="image"
+            class="recipe__img"
+          />
+        </div>
+      </section>
+
+      <!--==================== PIZZAS ====================-->
+      <section class="pizzas section" id="pizzas">
+        <h2 class="section__title">Our Pizza Menu</h2>
+        <div class="pizzas__container container grid">
+          <article class="pizzas__card" th:each="pizza : ${pizzas}">
+            <img
+              th:src="@{${pizza.imagePath}}"
+              alt="Pizza Image"
+              class="pizzas__img"
+            />
+
+            <div class="pizzas__data">
+              <h3 class="pizzas__name" th:text="${pizza.name}"></h3>
+
+              <button
+                class="pizzas__button"
+                onclick="openModal(event, this)"
+                th:data-id="${pizza.id}"
+                th:data-small="${pizza.priceSmall}"
+                th:data-medium="${pizza.priceMedium}"
+                th:data-large="${pizza.priceLarge}"
+              >
+                <i class="ri-shopping-bag-3-fill"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Modal -->
+      <div id="pizzaModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h3 id="modalPizzaName" class="modal-title"></h3>
+          <img id="modalPizzaImg" src="" alt="Pizza Image" class="modal-img" />
+          <form id="modalForm" th:action="@{/cart/add}" method="post">
+            <input type="hidden" name="pizzaId" id="modalPizzaId" />
+            <input
+              type="hidden"
+              th:if="${currentUser != null}"
+              th:value="${currentUser.getId()}"
+              name="customerId"
+            />
+
+            <div class="modal-size mt-3">
+              <label>
+                <input type="radio" name="pizzaSize" value="SMALL" />
+                Small: <span id="smallPrice"></span> €
+              </label>
+              <label>
+                <input type="radio" name="pizzaSize" value="MEDIUM" checked />
+                Medium: <span id="mediumPrice"></span> €
+              </label>
+              <label>
+                <input type="radio" name="pizzaSize" value="LARGE" />
+                Large: <span id="largePrice"></span> €
+              </label>
+            </div>
+
+            <div class="modal-quantity mt-3">
+              <label for="quantity">Quantity:</label>
+              <div class="quantity-control">
+                <button
+                  type="button"
+                  class="quantity-btn"
+                  onclick="updateQuantity(-1)"
+                >
+                  -
+                </button>
+                <input
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  value="1"
+                  min="1"
+                  readonly
+                />
+                <button
+                  type="button"
+                  class="quantity-btn"
+                  onclick="updateQuantity(1)"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+            <div class="modal-total mt-3">
+              Total Price: <span id="totalPrice"></span> €
+            </div>
+
+            <button type="submit" class="modal-button">Add to Cart</button>
+          </form>
+        </div>
+      </div>
+
+      <!--==================== CONTACT ====================-->
+      <section class="contact section" id="contact">
+        <div class="contact__container container grid">
+          <div class="contact__data">
+            <h2 class="section__title">Contact Now</h2>
+
+            <div class="contact__info grid">
+              <div>
+                <h3 class="contact__title">Write Us</h3>
+                <div class="contact__social">
+                  <a href="" target="_blank" class="contact__social-link">
+                    <i class="ri-instagram-fill"></i>
+                  </a>
+                  <a href="" target="_blank" class="contact__social-link">
+                    <i class="ri-twitter-fill"></i>
+                  </a>
+                  <a href="" target="_blank" class="contact__social-link">
+                    <i class="ri-facebook-fill"></i>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h3 class="contact__title">Delivery</h3>
+
+                <address class="contact__address">
+                  +123 456 789 <br />
+                  +123 456 789
+                </address>
+              </div>
+              <div>
+                <h3 class="contact__title">Location</h3>
+
+                <address class="contact__address">
+                  123, Main Street <br />
+                  Zwickau, 08056
+                </address>
+
+                <a
+                  href="https://maps.app.goo.gl/9qfH8b3PpkWGH1Fx5"
+                  target="_blank"
+                  class="contact__map"
+                >
+                  <i class="ri-map-pin-fill"></i>
+                  <span>View On Map</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="contact__image">
+            <img
+              src="assets/img/contact-img.png"
+              alt="image"
+              class="contact__img"
+            />
+          </div>
+
+          <img
+            src="assets/img/sticker-tomato.svg"
+            alt="image"
+            class="contact__sticker-1"
+          />
+          <img
+            src="assets/img/sticker-mushroom.svg"
+            alt="image"
+            class="contact__sticker-2"
+          />
+          <img
+            src="assets/img/sticker-onion.svg"
+            alt="image"
+            class="contact__sticker-3"
+          />
+        </div>
+      </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer th:insert="fragments/footer.html :: footer"></footer>
+
+    <!--========== SCROLL UP ==========-->
+
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="ri-arrow-up-line"></i>
+    </a>
+
+    <!--=============== SCROLLREVEAL ===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+
+    <script>
+      const modal = document.getElementById("pizzaModal");
+      const modalPizzaName = document.getElementById("modalPizzaName");
+      const modalPizzaImg = document.getElementById("modalPizzaImg");
+      const modalPizzaId = document.getElementById("modalPizzaId");
+      const smallPrice = document.getElementById("smallPrice");
+      const mediumPrice = document.getElementById("mediumPrice");
+      const largePrice = document.getElementById("largePrice");
+      const totalPrice = document.getElementById("totalPrice");
+      const quantityInput = document.getElementById("quantity");
+
+      function openModal(event, button) {
+        const card = button.closest(".pizzas__card");
+        modalPizzaName.textContent =
+          card.querySelector(".pizzas__name").textContent;
+        modalPizzaImg.src = card.querySelector(".pizzas__img").src;
+        modalPizzaId.value = button.getAttribute("data-id");
+
+        smallPrice.textContent = button.getAttribute("data-small");
+        mediumPrice.textContent = button.getAttribute("data-medium");
+        largePrice.textContent = button.getAttribute("data-large");
+        totalPrice.textContent = button.getAttribute("data-medium");
+
+        document.querySelector(
+          'input[name="pizzaSize"][value="MEDIUM"]'
+        ).checked = true;
+
+        document
+          .querySelectorAll('input[name="pizzaSize"]')
+          .forEach((radio) => {
+            radio.addEventListener("change", updatePrice);
+          });
+
+        modal.style.display = "block";
+      }
+
+      function updatePrice() {
+        const selectedSize = document.querySelector(
+          'input[name="pizzaSize"]:checked'
+        ).value;
+        const price =
+          selectedSize === "SMALL"
+            ? parseFloat(smallPrice.textContent)
+            : selectedSize === "LARGE"
+            ? parseFloat(largePrice.textContent)
+            : parseFloat(mediumPrice.textContent);
+        const quantity = parseInt(quantityInput.value, 10);
+        totalPrice.textContent = (price * quantity).toFixed(2);
+      }
+
+      function updateQuantity(amount) {
+        const currentValue = parseInt(quantityInput.value, 10);
+        if (currentValue + amount >= 1) {
+          quantityInput.value = currentValue + amount;
+          updatePrice();
+        }
+      }
+
+      function closeModal() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      };
+    </script>
+
+    <style>
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #fff;
+        margin: 5% auto;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        max-width: 400px;
+      }
+
+      .modal-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .modal-img {
+        max-width: 150px;
+        margin: 10px auto;
+        display: block;
+        border-radius: 10px;
+      }
+
+      .modal-size label {
+        display: block;
+        margin: 10px 0;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .modal-quantity {
+        margin-top: 15px;
+      }
+
+      .quantity-control {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+      }
+
+      .quantity-btn {
+        background-color: #38d39f;
+        color: white;
+        border: none;
+        font-size: 18px;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 0 5px;
+      }
+
+      #quantity {
+        width: 50px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 5px;
+      }
+
+      .modal-total {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .modal-button {
+        background-color: #38d39f;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    </style>
+    <script src="assets/js/home.js"></script>
+  </body>
+</html>

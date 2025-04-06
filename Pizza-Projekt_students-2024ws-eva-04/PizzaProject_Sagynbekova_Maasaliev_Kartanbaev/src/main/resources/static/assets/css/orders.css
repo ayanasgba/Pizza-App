@@ -1,0 +1,51 @@
+/* Order History Custom Styles */
+.order-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+.order-summary {
+  font-size: 16px;
+}
+.order-summary strong {
+  color: #353535;
+}
+.order-actions a {
+  margin-right: 10px;
+}
+.btn-view-details {
+  background-color: var(--first-color);
+  color: var(--white-color);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+.btn-view-details:hover {
+  background-color: var(--first-color-alt);
+  color: #fff;
+}
+.order-empty {
+  text-align: center;
+  margin-top: 50px;
+}
+.order-empty img {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+.order-empty h3 {
+  font-weight: bold;
+  color: var(--text-color);
+}
+.order-empty a {
+  background-color: var(--first-color);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.order-empty a:hover {
+  background-color: var(--first-color-alt);
+}

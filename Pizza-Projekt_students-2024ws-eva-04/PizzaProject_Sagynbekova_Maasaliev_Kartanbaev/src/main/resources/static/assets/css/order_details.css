@@ -1,0 +1,42 @@
+/* Custom Styles for Order Details */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.order-summary strong {
+  color: var(--title-color);
+}
+
+.table {
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background-color: var(--first-color) !important;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--first-color-alt);
+}
+
+.btn-secondary {
+  background-color: var(--text-color);
+  color: var(--white-color);
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: var(--text-color-light);
+}
+
+.text-center a {
+  margin: 10px;
+}

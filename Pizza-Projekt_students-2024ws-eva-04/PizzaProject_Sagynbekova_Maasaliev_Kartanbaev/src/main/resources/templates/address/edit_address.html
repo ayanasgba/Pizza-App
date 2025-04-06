@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title th:text="${pageTitle}">Edit Delivery Address</title>
+  <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  />
+  <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+  />
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css"
+          rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/assets/css/home.css" />
+  <link rel="stylesheet" href="/assets/css/profile.css" />
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"></header>
+
+<div class="container main_user">
+  <div class="card shadow-sm p-4">
+    <h1 class="text-primary mt-4">Edit Delivery Address</h1>
+
+    <!-- Form to edit existing delivery address -->
+    <form
+            th:action="@{/address/edit/{id} (id=${deliveryAddress.id})}"
+            th:object="${deliveryAddress}"
+            method="post"
+            class="mt-4"
+    >
+      <div class="form-group">
+        <label for="street">Street</label>
+        <input
+                type="text"
+                id="street"
+                name="street"
+                th:value="${deliveryAddress.street}"
+                class="form-control"
+                required
+        />
+      </div>
+      <div class="form-group">
+        <label for="houseNumber">House Number</label>
+        <input
+                type="text"
+                id="houseNumber"
+                name="houseNumber"
+                th:value="${deliveryAddress.houseNumber}"
+                class="form-control"
+                required
+        />
+      </div>
+      <div class="form-group">
+        <label for="town">Town</label>
+        <input
+                type="text"
+                id="town"
+                name="town"
+                th:value="${deliveryAddress.town}"
+                class="form-control"
+                required
+        />
+      </div>
+      <div class="form-group">
+        <label for="postalCode">Postal Code</label>
+        <input
+                type="text"
+                id="postalCode"
+                name="postalCode"
+                th:value="${deliveryAddress.postalCode}"
+                class="form-control"
+                required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">
+        Update Address
+      </button>
+    </form>
+    <a
+            th:href="@{/address/delete/{id} (id=${deliveryAddress.getId()})}"
+            class="btn btn-delete"
+    >
+      <i class="ri-delete-bin-line"></i> Delete
+    </a>
+<footer th:insert="fragments/footer.html :: footer"></footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="/assets/js/swiper-bundle.min.js"></script>
+<script src="/assets/js/home.js"></script>
+</body>
+</html>

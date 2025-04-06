@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Menu</title>
+    <!--=============== CSS LINKS ===============-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/home.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header th:insert="fragments/header.html :: header"></header>
+
+    <main class="main">
+      <!-- Pizza Section -->
+      <section class="pizzas section" id="pizzas">
+        <h2 class="section__title">Our Pizza Menu</h2>
+        <div class="pizzas__container container grid">
+          <article class="pizzas__card" th:each="pizza : ${pizzas}">
+            <img
+              th:src="@{${pizza.imagePath}}"
+              alt="Pizza Image"
+              class="pizzas__img"
+            />
+
+            <div class="pizzas__data">
+              <h3 class="pizzas__name" th:text="${pizza.name}"></h3>
+
+              <button
+                class="pizzas__button"
+                onclick="openModal(event, this)"
+                th:data-id="${pizza.id}"
+                th:data-small="${pizza.priceSmall}"
+                th:data-medium="${pizza.priceMedium}"
+                th:data-large="${pizza.priceLarge}"
+              >
+                <i class="ri-shopping-bag-3-fill"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="pizzaModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 id="modalPizzaName" class="modal-title"></h3>
+        <img id="modalPizzaImg" src="" alt="Pizza Image" class="modal-img" />
+        <form id="modalForm" th:action="@{/cart/add}" method="post">
+          <input type="hidden" name="pizzaId" id="modalPizzaId" />
+          <input
+            type="hidden"
+            th:if="${currentUser != null}"
+            th:value="${currentUser.getId()}"
+            name="customerId"
+          />
+
+          <div class="modal-size mt-3">
+            <label>
+              <input type="radio" name="pizzaSize" value="SMALL" />
+              Small: <span id="smallPrice"></span> €
+            </label>
+            <label>
+              <input type="radio" name="pizzaSize" value="MEDIUM" checked />
+              Medium: <span id="mediumPrice"></span> €
+            </label>
+            <label>
+              <input type="radio" name="pizzaSize" value="LARGE" />
+              Large: <span id="largePrice"></span> €
+            </label>
+          </div>
+
+          <div class="modal-quantity mt-3">
+            <label for="quantity">Quantity:</label>
+            <div class="quantity-control">
+              <button
+                type="button"
+                class="quantity-btn"
+                onclick="updateQuantity(-1)"
+              >
+                -
+              </button>
+              <input
+                type="number"
+                id="quantity"
+                name="quantity"
+                value="1"
+                min="1"
+                readonly
+              />
+              <button
+                type="button"
+                class="quantity-btn"
+                onclick="updateQuantity(1)"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div class="modal-total mt-3">
+            Total Price: <span id="totalPrice"></span> €
+          </div>
+
+          <button type="submit" class="modal-button">Add to Cart</button>
+        </form>
+      </div>
+    </div>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/home.js"></script>
+    <script>
+      const modal = document.getElementById("pizzaModal");
+      const modalPizzaName = document.getElementById("modalPizzaName");
+      const modalPizzaImg = document.getElementById("modalPizzaImg");
+      const modalPizzaId = document.getElementById("modalPizzaId");
+      const smallPrice = document.getElementById("smallPrice");
+      const mediumPrice = document.getElementById("mediumPrice");
+      const largePrice = document.getElementById("largePrice");
+      const totalPrice = document.getElementById("totalPrice");
+      const quantityInput = document.getElementById("quantity");
+
+      function openModal(event, button) {
+        const card = button.closest(".pizzas__card");
+        modalPizzaName.textContent =
+          card.querySelector(".pizzas__name").textContent;
+        modalPizzaImg.src = card.querySelector(".pizzas__img").src;
+        modalPizzaId.value = button.getAttribute("data-id");
+
+        smallPrice.textContent = button.getAttribute("data-small");
+        mediumPrice.textContent = button.getAttribute("data-medium");
+        largePrice.textContent = button.getAttribute("data-large");
+        totalPrice.textContent = button.getAttribute("data-medium");
+
+        document.querySelector(
+          'input[name="pizzaSize"][value="MEDIUM"]'
+        ).checked = true;
+
+        document
+          .querySelectorAll('input[name="pizzaSize"]')
+          .forEach((radio) => {
+            radio.addEventListener("change", updatePrice);
+          });
+
+        modal.style.display = "block";
+      }
+
+      function updatePrice() {
+        const selectedSize = document.querySelector(
+          'input[name="pizzaSize"]:checked'
+        ).value;
+        const price =
+          selectedSize === "SMALL"
+            ? parseFloat(smallPrice.textContent)
+            : selectedSize === "LARGE"
+            ? parseFloat(largePrice.textContent)
+            : parseFloat(mediumPrice.textContent);
+        const quantity = parseInt(quantityInput.value, 10);
+        totalPrice.textContent = (price * quantity).toFixed(2);
+      }
+
+      function updateQuantity(amount) {
+        const currentValue = parseInt(quantityInput.value, 10);
+        if (currentValue + amount >= 1) {
+          quantityInput.value = currentValue + amount;
+          updatePrice();
+        }
+      }
+
+      function closeModal() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      };
+    </script>
+
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #fff;
+        margin: 5% auto;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        max-width: 400px;
+      }
+
+      .modal-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .modal-img {
+        max-width: 150px;
+        margin: 10px auto;
+        display: block;
+        border-radius: 10px;
+      }
+
+      .modal-size label {
+        display: block;
+        margin: 10px 0;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .modal-quantity {
+        margin-top: 15px;
+      }
+
+      .quantity-control {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+      }
+
+      .quantity-btn {
+        background-color: #38d39f;
+        color: white;
+        border: none;
+        font-size: 18px;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 0 5px;
+      }
+
+      #quantity {
+        width: 50px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 5px;
+      }
+
+      .modal-total {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .modal-button {
+        background-color: #38d39f;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order History</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/orders.css" />
+    <link rel="stylesheet" href="/assets/css/home.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header th:insert="fragments/header.html :: header"></header>
+
+    <!-- Order History Section -->
+    <div class="container mt-5">
+      <h2 class="text-center mb-4">Order History</h2>
+
+      <!-- Check if there are orders -->
+      <div th:if="${orders != null and orders.size() > 0}">
+        <div class="row">
+          <div th:each="order : ${orders}" class="col-md-6">
+            <div class="order-card">
+              <div class="order-summary">
+                <p>
+                  <strong>Order ID:</strong>
+                  <span th:text="${order.id}"></span>
+                </p>
+                <p>
+                  <strong>Number of Items:</strong>
+                  <span th:text="${order.numberOfItems}"></span>
+                </p>
+                <p>
+                  <strong>Total Price:</strong>
+                  <span th:text="'€' + ${order.totalPrice}"></span>
+                </p>
+              </div>
+              <div class="order-actions">
+                <a
+                  th:href="@{/orders/details/{id}(id=${order.id})}"
+                  class="btn btn-view-details"
+                >
+                  View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Message if no orders -->
+      <div th:if="${orders == null or orders.size() == 0}" class="order-empty">
+        <h3>No orders found</h3>
+        <a th:href="@{/pizzas}" class="button">Continue Shopping</a>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="/assets/js/home.js"></script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <div xmlns:th="http://www.thymeleaf.org"></div>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/home.css" />
+  </head>
+  <body>
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="/" class="nav__logo">
+          <img
+            src="/assets/img/logo-pizza.png"
+            alt="image"
+            style="width: 3rem"
+          />
+        </a>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li>
+              <a href="/" class="nav__link">Home</a>
+            </li>
+            <li
+              th:if="${currentUser != null} and ${currentUser.role.name() == 'ADMIN'}"
+            >
+              <a href="/customers" class="nav__link">Customers</a>
+            </li>
+            <li th:if="${currentUser != null} and ${currentUser.role.name() == 'USER'}">
+              <a href="/orders" class="nav__link">Orders</a>
+            </li>
+            <li th:if="${currentUser != null} and ${currentUser.role.name() == 'ADMIN'}">
+              <a href="/orders/getAll" class="nav__link">Orders</a>
+            </li>
+            <li>
+              <a
+                href="/cart"
+                class="nav__link"
+                th:href="@{/cart}"
+                >Cart</a
+              >
+            </li>
+            <li>
+              <a href="/pizzas" class="nav__link">Pizzas</a>
+            </li>
+
+            <li th:if="${currentUser != null}">
+              <a
+                class="nav__link"
+                th:href="@{/customers/edit/{id} (id=${currentUser.getId()})}"
+                >My Account</a
+              >
+            </li>
+            <li th:if="${currentUser != null}">
+              <a class="nav__link" th:href="@{/logout}">Logout</a>
+            </li>
+
+            <li th:if="${currentUser == null}">
+              <a class="nav__link" th:href="@{/auth/login}">Login</a>
+            </li>
+          </ul>
+
+          <!-- Close button -->
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-large-line"></i>
+          </div>
+        </div>
+
+        <!-- Toggle button -->
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-apps-2-fill"></i>
+        </div>
+      </nav>
+    </header>
+
+    <script src="assets/js/home.js"></script>
+  </body>
+</html>

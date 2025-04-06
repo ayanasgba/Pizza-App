@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Register</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" th:href="@{/assets/css/register.css}" />
+  </head>
+  <body>
+    <img class="background-wave" th:src="@{/assets/img/wave.png}" />
+    <div class="form-container">
+      <div class="form-image">
+        <img th:src="@{/assets/img/bg.svg}" />
+      </div>
+      <div class="form-content">
+        <form
+          th:action="@{/auth/register}"
+          th:object="${customer}"
+          method="post"
+        >
+          <h2 class="form-title">Create Account</h2>
+
+          <!-- Customer Information -->
+          <div class="input-row">
+            <div class="input-field half-width">
+              <div class="icon"><i class="fas fa-user"></i></div>
+              <div class="field">
+                <h5>First Name</h5>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  th:field="*{firstName}"
+                  class="input"
+                  required
+                />
+              </div>
+            </div>
+            <div class="input-field half-width">
+              <div class="icon"><i class="fas fa-user"></i></div>
+              <div class="field">
+                <h5>Last Name</h5>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  th:field="*{lastName}"
+                  class="input"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="input-field full-width">
+            <div class="icon"><i class="fas fa-envelope"></i></div>
+            <div class="field">
+              <h5>Login Name</h5>
+              <input
+                type="text"
+                id="loginName"
+                name="loginName"
+                th:field="*{loginName}"
+                class="input"
+                required
+              />
+            </div>
+          </div>
+          <div class="input-field full-width">
+            <div class="icon"><i class="fas fa-lock"></i></div>
+            <div class="field">
+              <h5>Password</h5>
+              <input
+                type="password"
+                id="passwordHash"
+                name="passwordHash"
+                th:field="*{passwordHash}"
+                class="input"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Address Information -->
+          <h3 class="form-subtitle" style="margin: 15px 0 0 0">Address</h3>
+          <div class="input-field full-width">
+            <div class="icon"><i class="fas fa-road"></i></div>
+            <div class="field">
+              <h5>Street</h5>
+              <input
+                type="text"
+                id="street"
+                name="street"
+                th:field="*{street}"
+                class="input"
+                required
+              />
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-field half-width">
+              <div class="icon"><i class="fas fa-city"></i></div>
+              <div class="field">
+                <h5>Town</h5>
+                <input
+                  type="text"
+                  id="town"
+                  name="town"
+                  th:field="*{town}"
+                  class="input"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-field half-width">
+              <div class="icon"><i class="fas fa-home"></i></div>
+              <div class="field">
+                <h5>House Number</h5>
+                <input
+                  type="text"
+                  id="houseNumber"
+                  name="houseNumber"
+                  th:field="*{houseNumber}"
+                  class="input"
+                  required
+                />
+              </div>
+            </div>
+            <div class="input-field half-width">
+              <div class="icon"><i class="fas fa-envelope"></i></div>
+              <div class="field">
+                <h5>Postal Code</h5>
+                <input
+                  type="text"
+                  id="postalCode"
+                  name="postalCode"
+                  th:field="*{postalCode}"
+                  class="input"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <input type="submit" class="form-button" value="Register" />
+
+          <!-- Login Link -->
+          <a th:href="@{/auth/login}" class="form-link"
+            >Already have an account? Login</a
+          >
+        </form>
+      </div>
+    </div>
+
+    <script th:src="@{/assets/js/auth.js}"></script>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  </body>
+</html>

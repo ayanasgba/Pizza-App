@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Animated Login Form</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" th:href="@{/assets/css/login.css}" />
+    <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  rel="stylesheet"
+/>
+  </head>
+  <body>
+    <img class="wave" th:src="@{/assets/img/wave.png}" />
+    <div class="container">
+      <div class="img">
+        <img th:src="@{/assets/img/bg.svg}" />
+      </div>
+      <div class="login-content">
+        <form th:action="@{/auth/login}" method="post">
+          <img th:src="@{/assets/img/avatar.svg}" />
+          <h2 class="title">Welcome</h2>
+
+          <!-- Username Input -->
+          <div class="input-div one">
+            <div class="i">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="div">
+              <h5>Login Name</h5>
+              <input
+                type="text"
+                id="loginName"
+                name="loginName"
+                class="input"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Password Input -->
+          <div class="input-div pass">
+            <div class="i">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div class="div">
+              <h5>Password</h5>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="input"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Messages -->
+          <div th:if="${param.error}" class="alert alert-danger mt-3">
+            Invalid login name or password.
+          </div>
+          <div th:if="${param.logout}" class="alert alert-success mt-3">
+            You have been logged out successfully.
+          </div>
+
+          <!-- Forgot Password -->
+          <!-- <a href="#">Forgot Password?</a> -->
+          <a th:href="@{/auth/register}" >Don't have an account?</a>
+
+
+          <!-- Submit Button -->
+          <input type="submit" class="btn-login" value="Login" />
+          <!-- Registration Link
+          <div class="text-center mt-4">
+            <a th:href="@{/auth/register}" class="btn btn-outline-secondary"
+              >Register</a
+            > -->
+          </div>
+        </form>
+      </div>
+    </div>
+    <script th:src="@{/assets/js/auth.js}"></script>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+
+  </body>
+</html>

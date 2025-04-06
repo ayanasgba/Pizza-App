@@ -1,0 +1,62 @@
+/* Custom styles for the customer list */
+.table-container {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: var(--container-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-create {
+  background-color: var(--first-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.btn-create:hover {
+  background-color: var(--first-color-alt);
+}
+
+.btn-edit {
+  background-color: var(--text-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.btn-edit:hover {
+  background-color: var(--text-color-light);
+}
+
+.btn-delete {
+  background-color: hsl(0, 76%, 56%);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.btn-delete:hover {
+  background-color: hsl(0, 76%, 46%);
+}
+
+th,
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  font-size: 0.875rem;
+  color: var(--text-color-light);
+}

@@ -1,0 +1,110 @@
+root {
+  /* Header height */
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  --first-color: hsl(353, 93%, 50%);
+  --first-color-alt: hsl(353, 93%, 46%);
+  --first-color-dark: hsl(353, 50%, 15%);
+  --title-color: hsl(353, 48%, 12%);
+  --text-color: hsl(353, 16%, 32%);
+  --text-color-light: hsl(353, 16%, 48%);
+  --white-color: hsl(24, 86%, 90%);
+  --body-color: hsl(24, 86%, 88%);
+  --container-color: hsl(24, 86%, 92%);
+  --shadow-small-img: drop-shadow(0 4px 16px hsla(353, 100%, 8%, 0.2));
+  --shadow-big-img: drop-shadow(0 8px 24px hsla(353, 100%, 8%, 0.2));
+
+  /*========== Fonts ==========*/
+  --body-font: "Montserrat", sans-serif;
+  --second-font: "Carter One", system-ui;
+  --biggest-font-size: 2.5rem;
+  --bigger-font-size: 1.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+}
+
+/* Стиль страницы */
+body {
+  font-family: var(--body-font);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--second-font);
+  color: var(--title-color);
+}
+
+.card {
+  background-color: var(--white-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.card h1 {
+  font-size: var(--h1-font-size);
+  color: var(--first-color);
+}
+
+.card label {
+  font-size: var(--normal-font-size);
+  color: var(--text-color-light);
+}
+
+.card input {
+  font-family: var(--body-font);
+  background-color: var(--container-color);
+  border: 1px solid var(--text-color-light);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  width: 100%;
+}
+
+.card button {
+  background-color: var(--first-color);
+  color: var(--white-color);
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-family: var(--second-font);
+  font-size: var(--normal-font-size);
+}
+
+.card button:hover {
+  background-color: var(--first-color-alt);
+  color: #fff !important;
+}
+
+.list-group button {
+  background-color: var(--container-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color-light);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.list-group button:hover {
+  background-color: var(--first-color);
+  color: var(--white-color);
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+form input {
+  margin-bottom: 1rem;
+}
